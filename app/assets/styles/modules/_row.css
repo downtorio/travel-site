@@ -4,10 +4,17 @@
 
 	&--gutters {
 		margin-right: -65px;	/* counteracts the padding-right:65px of the right-most div. this negative margin will in turn be counteracted by the overflow:hidden on .wrapper */
+		&-large {
+			margin-right: -100px;
+		}
 	}
 
 	&--gutters > div {			/* targets all direct children that need to be padded, rather than the element itself */
 		padding-right: 65px;
+	}
+
+	&--gutters-large > div {
+		padding-right: 100px;
 	}
 
 	&__b-margin-until-medium {
@@ -27,6 +34,11 @@
 			&--larger {
 				width: 37%;
 			}
+		}
+
+		&__medium-6 {
+			float: left;
+			width: 50%;
 		}
 
 		&__medium-8 {
