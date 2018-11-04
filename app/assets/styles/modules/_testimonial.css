@@ -1,0 +1,42 @@
+.testimonial {
+	background-color: rgba(255,255,255, 0.8);
+	margin-bottom: 98px;			/* 80px of half the circle image + 18px of the padding */
+	padding: 0 18px 1px 18px;
+
+	@mixin atLarge {
+		margin-bottom: 0;
+		padding: 0 1.8125rem 1px 1.8125rem;
+	}
+
+	&--last {
+		margin-bottom: 0;
+	}
+
+	&__photo {
+		/*so for this one, we're applying border-radius to the containing div instead of the image itself... interesting approach*/
+		border: 5px solid rgba(255,255,255, 0.8);
+		border-radius: 50%;
+		height: 160px;
+		margin: 0 auto -80px auto;	/* counteract the relative -80px top positioning */
+		overflow: hidden;			/* image portrudes out of the rounded corners. hide that portrusion */
+		position: relative;
+		top: -80px;
+		width: 160px;
+	}
+
+	&__title {
+		color: $mainBlue;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;
+		text-align: center;
+	}
+
+	&__subtitle {
+		color: $mainOrange;
+		text-align: center;
+		font-size: 0.9375rem;
+		font-weight: 400;
+		margin: 0.25rem 0 1rem 0;
+	}
+}

@@ -506,6 +506,32 @@ a {
 		max-width: 976px;
 	}
 
+.wrapper--no-padding-until-medium {
+		padding-left: 0;	/* taking out padding on the testimonials on small screen */
+		padding-right: 0;
+	}
+
+@media (min-width: 800px) {
+
+.wrapper--no-padding-until-medium {
+			padding-left: 18px;
+			padding-right: 18px
+	}
+	}
+
+.wrapper--no-padding-until-large {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+@media (min-width: 1010px) {
+
+.wrapper--no-padding-until-large {
+			padding-left: 18px;
+			padding-right: 18px
+	}
+	}
+
 .wrapper--b-margin {
 		margin-bottom: 1rem;
 	}
@@ -539,6 +565,10 @@ a {
 			margin-right: -100px;
 		}
 
+.row--gutters-small {
+			margin-right: -45px;
+		}
+
 .row--gutters > div {			/* targets all direct children that need to be padded, rather than the element itself */
 		padding-right: 65px;
 	}
@@ -547,12 +577,19 @@ a {
 		padding-right: 100px;
 	}
 
+.row--gutters-small > div {
+		padding-right: 45px;
+	}
+
 .row__b-margin-until-medium {
 		margin-bottom: 1rem;
 	}
 
-@media (min-width: 800px) {
+.row--t-padding {
+		padding-top: 80px;		/* counteract -80 top relative position of testimonials */
+	}
 
+@media (min-width: 800px) {
 		.row__b-margin-until-medium {
 			margin-bottom: 0;
 		}
@@ -561,7 +598,6 @@ a {
 			float: left;
 			width: 33.33%;
 		}
-
 			.row__medium-4--larger {
 				width: 37%;
 			}
@@ -575,11 +611,71 @@ a {
 			float: left;
 			width: 66.66%;
 		}
-
 			.row__medium-8--smaller {
 				width: 63%
 			}
 	}
+
+@media (min-width: 1010px) {
+		.row__b-margin-until-large {
+			margin-bottom: 0;
+		}
+		
+		.row__large-4 {
+			float: left;
+			width: 33.33%;
+		}
+			.row__large-4--larger {
+				width: 37%;
+			}
+
+		.row__large-6 {
+			float: left;
+			width: 50%;
+		}
+
+		.row__large-8 {
+			float: left;
+			width: 66.66%;
+		}
+			.row__large-8--smaller {
+				width: 63%
+			}
+	}
+
+/* Begin Equal Height Rules */
+
+@media (min-width: 800px) {
+
+.row--equal-height-at-medium {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex
+	}
+	}
+
+.row--equal-height-at-medium > div {
+			float: none;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;		/* flexbox makes them equal in height. cool! */
+		}
+
+@media (min-width: 1010px) {
+
+.row--equal-height-at-large {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex
+	}
+	}
+
+.row--equal-height-at-large > div {
+			float: none;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;		/* flexbox makes them equal in height. cool! */
+		}
 
 .generic-content-container p {
 		font-weight: 300;
@@ -736,6 +832,40 @@ a {
 		color: white;
 	}
 
+.page-section--testimonials {
+		background-color: #e0e6ef;
+	}
+
+@media (min-width: 1010px) {
+
+.page-section--testimonials {
+			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+			background-size: cover
+	}
+	}
+
+.page-section--no-b-padding-until-medium {
+		padding-bottom: 0;
+	}
+
+@media (min-width: 800px) {
+
+.page-section--no-b-padding-until-medium {
+			padding-bottom: 4.5rem
+	}
+	}
+
+.page-section--no-b-padding-until-large {
+		padding-bottom: 0;
+	}
+
+@media (min-width: 1010px) {
+
+.page-section--no-b-padding-until-large {
+			padding-bottom: 4.5rem
+	}
+	}
+
 .section-title {
 	font-size: 2.55rem;
 	font-weight: 300;
@@ -753,6 +883,10 @@ a {
 		font-weight: 500;
 	}
 
+.section-title--blue {
+		color: #2f5572;
+	}
+
 .section-title__icon {
 		display: block;
 		margin-bottom: 0.6rem;
@@ -766,7 +900,9 @@ a {
 			display: inline-block;
 			margin-bottom: 0;
 			margin-right: 0.5rem;
-			margin-left: 0
+			margin-left: 0;
+			position: relative;
+			top: 8px
 	}
 	}
 
@@ -810,4 +946,50 @@ a {
 			margin-top: 1em;
 			text-align: left
 	}
+	}
+
+.testimonial {
+	background-color: rgba(255,255,255, 0.8);
+	margin-bottom: 98px;			/* 80px of half the circle image + 18px of the padding */
+	padding: 0 18px 1px 18px;
+}
+
+@media (min-width: 1010px) {
+
+.testimonial {
+		margin-bottom: 0;
+		padding: 0 1.8125rem 1px 1.8125rem
+}
+	}
+
+.testimonial--last {
+		margin-bottom: 0;
+	}
+
+.testimonial__photo {
+		/*so for this one, we're applying border-radius to the containing div instead of the image itself... interesting approach*/
+		border: 5px solid rgba(255,255,255, 0.8);
+		border-radius: 50%;
+		height: 160px;
+		margin: 0 auto -80px auto;	/* counteract the relative -80px top positioning */
+		overflow: hidden;			/* image portrudes out of the rounded corners. hide that portrusion */
+		position: relative;
+		top: -80px;
+		width: 160px;
+	}
+
+.testimonial__title {
+		color: #2f5572;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;
+		text-align: center;
+	}
+
+.testimonial__subtitle {
+		color: #d59541;
+		text-align: center;
+		font-size: 0.9375rem;
+		font-weight: 400;
+		margin: 0.25rem 0 1rem 0;
 	}
