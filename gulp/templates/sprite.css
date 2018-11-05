@@ -1,0 +1,20 @@
+/* note that css/{-{-{-sprite-}-}-} does NOT say css/svg/{-{-{-sprite-}-}-}
+   the extra curly braces {-{-{-}-}-} signifies '/svg/' in its own way */
+
+/* Do not edit modules/_sprite directly as it is generated automatically by gulp
+	Instead, edit gulp/templates/sprite */
+
+{{#shapes}}
+	{{#first}}
+		/* any code within this line will only run once for the first item in the loop */
+		.icon {
+			background-image: url('/assets/images/sprites/{{{sprite}}}');
+		}
+	{{/first}}
+
+	.icon--{{base}} {
+		background-position: {{position.relative.xy}};
+		height: {{height.outer}}px;
+		width: {{width.outer}}px;
+	}
+{{/shapes}}
