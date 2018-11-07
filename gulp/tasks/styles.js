@@ -2,6 +2,7 @@ var gulp = require('gulp'),
 	autoprefixer = require('autoprefixer'),
 	cssimport = require('postcss-import'),
 	cssvars = require('postcss-simple-vars'),
+	hexrgba = require('postcss-hexrgba'),
 	mixins = require('postcss-mixins'),
 	nested = require('postcss-nested'),
 	postcss = require('gulp-postcss');
@@ -9,7 +10,7 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function() {
 	return gulp.src('./app/assets/styles/styles.css')
-			   .pipe(postcss([cssimport, mixins, cssvars, nested, autoprefixer]))
+			   .pipe(postcss([cssimport, mixins, cssvars, nested, hexrgba, autoprefixer]))
 			   .on('error', function(errorInfo) {	//we want gulp to keep running even when an error occurs, not to stop watching altogether, which is the default
 			   		console.log(errorInfo.toString());
 			   		this.emit('end');	//this is what .watch() looks for. con: it doesn't transmit an error on the command line to let us know an error occured. that's what errorInfo is for

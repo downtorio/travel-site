@@ -1,0 +1,123 @@
+.site-header {
+	padding: 10px 0;
+	position: absolute;
+	transition: background-color 0.3s ease-out;
+	width: 100%;
+	z-index: 2;
+
+	&--is-expanded {
+		background-color: rgba($mainBlue, 0.75);
+	}
+
+	@mixin atMedium {
+		background-color: rgba($mainBlue, .3);
+	}
+
+	&__btn-container {
+		
+		@mixin atMedium {
+			float: right;
+		}
+	}
+
+	&__logo {
+		background-color: $mainBlue;
+		left: 50%;
+		padding: 25px 35px;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%) scale(0.8);
+		transform-origin: 50% 0;
+		@mixin atMedium {
+			left: auto;
+			transform: translateX(0);
+		}
+
+		&__graphic {
+			text-indent: -999px;
+		}
+	}
+
+	&__menu-icon {
+		height: 19px;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 20px;
+		z-index: 20;
+		@mixin atMedium {
+			display: none;
+		}
+
+		&::before {
+			background-color: white;
+			content: '';
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: 0;
+			transform-origin: 0 0;				/* for our --close-x class */
+			transition: transform 0.3s ease-out;
+			width: 20px;
+		}
+		&__middle {
+			background-color: white;
+			height: 3px;
+			right: 0;
+			position: absolute;
+			top: 8px;
+			transform-origin: 100% 50%;		/* for transform on --close-x */
+			transition: all 0.3s ease-out;
+			width: 20px;
+		}
+		&::after {
+			background-color: white;
+			bottom: 0;
+			content: '';
+			height: 3px;
+			left: 0;
+			position: absolute;
+			transform-origin: 0 100%;
+			transition: transform 0.3s ease-out;
+			width: 20px;
+		}
+
+		&--close-x {
+			&::before {
+				transform: rotate(45deg) scaleX(1.25);
+			}
+
+			.site-header__menu-icon__middle {
+				opacity: 0;
+				transform: scaleX(0);
+				/* we could've used width:0 instead of transform, but... just experimenting */
+			}
+
+			&::after {
+				transform: rotate(-45deg) scaleX(1.25) translateY(1px); /* translateY just cuz this line looks like it's a little too high */
+			}
+		}
+	}
+
+	&__menu-content {
+		opacity: 0;				/* using opacity for transition effects */
+		padding-top: 90px;
+		position: relative;		/* just for z-index's sake */
+		transform: scale(1.2);
+		text-align: center;
+		transition: all 0.3s ease-out;
+		z-index: -10;			/* bc we're using opacity, the element technically still exists, just hidden. and we don't want the user to accidentally click on something that's hidden, so we're putting it behind everything else on the page. SMART! */
+		@mixin atMedium {
+			opacity: 1;
+			padding-top: 0;
+			transform: scale(1);
+			z-index: 1;
+		}
+
+		&--is-visible {
+			opacity: 1;
+			transform: scale(1);
+			z-index: 1;
+		}
+	}
+}

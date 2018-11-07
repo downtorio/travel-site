@@ -9,11 +9,15 @@
 	&__text-content {
 	// yo!!! this trick prevents descendent selectors--which go against the BEM philosophy--while still allowing nesting in CSS! fancy!!!
 		left: 0;
+		padding-top: 88px;
 		position: absolute;
 		text-align: center;
 		top: 50%;
 		transform: translateY(-50%);
 		width: 100%;
+		@mixin atMedium {
+			padding-top: 60px;
+		}
 	}
 
 	&__title {

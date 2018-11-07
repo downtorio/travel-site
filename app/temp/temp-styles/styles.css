@@ -763,12 +763,20 @@ a {
 .large-hero__text-content {
 	// yo!!! this trick prevents descendent selectors--which go against the BEM philosophy--while still allowing nesting in CSS! fancy!!!
 		left: 0;
+		padding-top: 88px;
 		position: absolute;
 		text-align: center;
 		top: 50%;
 		-webkit-transform: translateY(-50%);
 		        transform: translateY(-50%);
 		width: 100%;
+	}
+
+@media (min-width: 800px) {
+
+.large-hero__text-content {
+			padding-top: 60px
+	}
 	}
 
 .large-hero__title {
@@ -863,6 +871,241 @@ a {
 
 .page-section--no-b-padding-until-large {
 			padding-bottom: 4.5rem
+	}
+	}
+
+.site-header {
+	padding: 10px 0;
+	position: absolute;
+	-webkit-transition: background-color 0.3s ease-out;
+	transition: background-color 0.3s ease-out;
+	width: 100%;
+	z-index: 2;
+}
+
+.site-header--is-expanded {
+		background-color: rgba(47,85,114, 0.75);
+	}
+
+@media (min-width: 800px) {
+
+.site-header {
+		background-color: rgba(47,85,114, .3)
+}
+	}
+
+@media (min-width: 800px) {
+
+.site-header__btn-container {
+			float: right
+	}
+	}
+
+.site-header__logo {
+		background-color: #2f5572;
+		left: 50%;
+		padding: 25px 35px;
+		position: absolute;
+		top: 0;
+		-webkit-transform: translateX(-50%) scale(0.8);
+		        transform: translateX(-50%) scale(0.8);
+		-webkit-transform-origin: 50% 0;
+		        transform-origin: 50% 0;
+	}
+
+@media (min-width: 800px) {
+
+.site-header__logo {
+			left: auto;
+			-webkit-transform: translateX(0);
+			        transform: translateX(0)
+	}
+	}
+
+.site-header__logo__graphic {
+			text-indent: -999px;
+		}
+
+.site-header__menu-icon {
+		height: 19px;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 20px;
+		z-index: 20;
+	}
+
+@media (min-width: 800px) {
+
+.site-header__menu-icon {
+			display: none
+	}
+	}
+
+.site-header__menu-icon::before {
+			background-color: white;
+			content: '';
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: 0;
+			-webkit-transform-origin: 0 0;
+			        transform-origin: 0 0;				/* for our --close-x class */
+			-webkit-transition: -webkit-transform 0.3s ease-out;
+			transition: -webkit-transform 0.3s ease-out;
+			transition: transform 0.3s ease-out;
+			transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+			width: 20px;
+		}
+
+.site-header__menu-icon__middle {
+			background-color: white;
+			height: 3px;
+			right: 0;
+			position: absolute;
+			top: 8px;
+			-webkit-transform-origin: 100% 50%;
+			        transform-origin: 100% 50%;		/* for transform on --close-x */
+			-webkit-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+			width: 20px;
+		}
+
+.site-header__menu-icon::after {
+			background-color: white;
+			bottom: 0;
+			content: '';
+			height: 3px;
+			left: 0;
+			position: absolute;
+			-webkit-transform-origin: 0 100%;
+			        transform-origin: 0 100%;
+			-webkit-transition: -webkit-transform 0.3s ease-out;
+			transition: -webkit-transform 0.3s ease-out;
+			transition: transform 0.3s ease-out;
+			transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+			width: 20px;
+		}
+
+.site-header__menu-icon--close-x::before {
+				-webkit-transform: rotate(45deg) scaleX(1.25);
+				        transform: rotate(45deg) scaleX(1.25);
+			}
+
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+				opacity: 0;
+				-webkit-transform: scaleX(0);
+				        transform: scaleX(0);
+				/* we could've used width:0 instead of transform, but... just experimenting */
+			}
+
+.site-header__menu-icon--close-x::after {
+				-webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+				        transform: rotate(-45deg) scaleX(1.25) translateY(1px); /* translateY just cuz this line looks like it's a little too high */
+			}
+
+.site-header__menu-content {
+		opacity: 0;				/* using opacity for transition effects */
+		padding-top: 90px;
+		position: relative;		/* just for z-index's sake */
+		-webkit-transform: scale(1.2);
+		        transform: scale(1.2);
+		text-align: center;
+		-webkit-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+		z-index: -10;
+	}
+
+/* bc we're using opacity, the element technically still exists, just hidden. and we don't want the user to accidentally click on something that's hidden, so we're putting it behind everything else on the page. SMART! */
+
+@media (min-width: 800px) {
+
+.site-header__menu-content {
+			opacity: 1;
+			padding-top: 0;
+			-webkit-transform: scale(1);
+			        transform: scale(1);
+			z-index: 1
+	}
+	}
+
+.site-header__menu-content--is-visible {
+			opacity: 1;
+			-webkit-transform: scale(1);
+			        transform: scale(1);
+			z-index: 1;
+		}
+
+.primary-nav {
+	padding-top: 10px;
+}
+
+@media (min-width: 800px) {
+
+.primary-nav {
+		padding-top: 0
+}
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav--pull-right {
+			float: right
+	}
+	}
+
+.primary-nav ul {
+		margin: 0;
+		padding: 0;
+		/* need clearfix bc li items inside are all floated */
+	}
+
+.primary-nav ul::after {
+		clear: both;
+		content: "";
+		display: table;		/* for extra browser support */
+	}
+
+.primary-nav li {
+		display: inline-block;			
+		list-style: none;
+		padding-right: 8px;
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav li {
+			display: block;
+			float: left		/* makes them sit on one line */
+	}
+	}
+
+.primary-nav li:last-child {
+			padding-right: 0;
+		}
+
+@media (min-width: 800px) {
+
+.primary-nav li:last-child {
+				padding-right: 20px
+		}
+	}
+
+.primary-nav a {
+		background-color: rgba(47,85,114, 0.5);
+		color: white;
+		display: block;
+		font-size: .8rem;
+		font-weight: 300;
+		padding: 5px 8px;
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav a {
+			background-color: transparent;
+			font-size: 1rem;
+			padding: 12px 0
 	}
 	}
 
@@ -1030,7 +1273,7 @@ a {
 
 .icon--clear-view-escapes {
 		background-position: 0 0;
-		height: 59.53px;
+		height: 59.4px;
 		width: 142.4px;
 	}
 
