@@ -26,7 +26,7 @@ class RevealOnScroll {
 				handler: function() {
 					item.classList.add('reveal-item--is-visible');
 				},
-				//default is 0, aka it's not revealed until top of element is scrolled to; 100% makes it so reveal when bottom of element is scrolled to
+				//default is 0, which references the top of the VIEWPORT, so it's not revealed until top of element reaches top of viewport; 100% makes it so we reveal once top of element reaches bottom of viewport
 				offset: that.offsetPercentage
 			});
 		}
