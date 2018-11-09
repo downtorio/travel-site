@@ -8,6 +8,7 @@
 	<meta name="description" content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you.">
 
 	<link rel="stylesheet" type="text/css" href="temp/temp-styles/styles.css">
+	<script src="/temp/scripts/Vendor.js"></script>
 </head>
 
 
@@ -148,7 +149,8 @@
 				<div class="row__large-4">
 					<div class="testimonial">
 						<div class="testimonial__photo">
-							<img sizes="160px" srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w" alt="Jane Doe">
+							<img class="lazyload" sizes="160px" data-srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w" alt="Jane Doe">
+							<!-- note! lazyload isn't gonna work cuz we're working with a more updated version of webpack than what the course is teaching. keeping it here for future reference cuz it sounds handy but... not working for us rn. -->
 						</div>
 						<h3 class="testimonial__title">Jane Doe</h3>
 						<h4 class="testimonial__subtitle">9 Time Escaper</h4>
