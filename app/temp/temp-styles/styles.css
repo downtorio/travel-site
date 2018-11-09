@@ -506,6 +506,10 @@ a {
 		max-width: 976px;
 	}
 
+.wrapper--narrow {
+		max-width: 470px;
+	}
+
 .wrapper--no-padding-until-medium {
 		padding-left: 0;	/* taking out padding on the testimonials on small screen */
 		padding-right: 0;
@@ -1170,6 +1174,11 @@ a {
 		color: #2f5572;
 	}
 
+.section-title--less-margin {
+		margin-bottom: 1.3rem;
+		margin-top: 0;
+	}
+
 .section-title__icon {
 		display: block;
 		margin-bottom: 0.6rem;
@@ -1374,3 +1383,90 @@ a {
 		-webkit-transform: scale(1);
 		        transform: scale(1);
 	}
+
+.modal {
+	background-color: rgba(255,255,255, 0.95);
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	-webkit-transform: scale(1.2);
+	        transform: scale(1.2);
+	-webkit-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	visibility: hidden;
+	z-index: 30;
+}
+
+.modal--is-visible {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+		visibility: visible;
+	}
+
+.modal__inner {
+		position: absolute;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		width: 100%;
+	}
+
+.modal__description {
+		font-size: 1.2rem;
+		font-weight: 300;
+		line-height: 1.6;
+		text-align: center;
+	}
+
+.modal__close {
+		color: #2f5572;
+		cursor: pointer;
+		font-size: 1.7rem;
+		position: absolute;
+		right: 20px;
+		top: 15px;
+		-webkit-transform: scaleX(1.2);
+		        transform: scaleX(1.2);
+		-webkit-transform-origin: 100% 0;
+		        transform-origin: 100% 0;
+		-webkit-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+	}
+
+.modal__close:hover {
+			color: #d59541;
+		}
+
+.social-icons {
+	text-align: center;
+}
+
+.social-icons__icon {
+		background-color: #d59541;
+		display: inline-block;
+		height: 72px;
+		margin: 0 5px 5px 5px;
+		position: relative;
+		width: 33%;
+	}
+
+@media (min-width: 530px) {
+
+.social-icons__icon {
+			margin: 0 5px;
+			width: 72px
+	}
+	}
+
+.social-icons__icon .icon {
+			display: block;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			        transform: translate(-50%, -50%);
+		}

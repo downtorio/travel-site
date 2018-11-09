@@ -845,9 +845,13 @@ var _StickyHeader = __webpack_require__(4);
 
 var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
 
+var _Modal = __webpack_require__(5);
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _MobileMenu2.default(); /* jshint esversion: 6 */
+/* jshint esversion: 6 */
 
 //const Person = require('./modules/Person'); 	//let's do this the ES6 way:
 /*import Person from './modules/Person';
@@ -868,9 +872,11 @@ jane.payTaxes();
 
 // That shit was all hypothetical. MOVING ON!
 
+var mobileMenu = new _MobileMenu2.default();
 new _RevealOnScroll2.default('feature-item', '85%');
 new _RevealOnScroll2.default('testimonial', '60%');
 var stickyHeader = new _StickyHeader2.default();
+var modal = new _Modal2.default();
 
 /***/ }),
 /* 2 */
@@ -1233,6 +1239,99 @@ var StickyHeader = function () {
 }();
 
 exports.default = StickyHeader;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/* jshint esversion:6 */
+
+var Modal = function () {
+	function Modal() {
+		_classCallCheck(this, Modal);
+
+		this.openModalButton = document.getElementsByClassName('open-modal');
+		this.modal = document.getElementsByClassName('modal')[0];
+		this.closeModalButton = document.getElementsByClassName('modal__close')[0];
+		this.events();
+	}
+
+	_createClass(Modal, [{
+		key: 'events',
+		value: function events() {
+			// clicking the open modal button
+			var _iteratorNormalCompletion = true;
+			var _didIteratorError = false;
+			var _iteratorError = undefined;
+
+			try {
+				for (var _iterator = this.openModalButton[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+					var btn = _step.value;
+
+					btn.addEventListener('click', this.openModal.bind(this));
+				}
+				//this.openModalButton.addEventListener('click', this.openModal.bind(this));
+				//remember: we're using bind to prevent 'this' from poiting to the element that triggers the event, and keep it pointed to our Modal object
+
+				// clicking the x button
+			} catch (err) {
+				_didIteratorError = true;
+				_iteratorError = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion && _iterator.return) {
+						_iterator.return();
+					}
+				} finally {
+					if (_didIteratorError) {
+						throw _iteratorError;
+					}
+				}
+			}
+
+			this.closeModalButton.addEventListener('click', this.closeModal.bind(this));
+
+			// push escape key
+			document.addEventListener('keyup', this.keyPressHandler.bind(this));
+		}
+	}, {
+		key: 'keyPressHandler',
+		value: function keyPressHandler(e) {
+			if (e.keyCode == 27) {
+				this.closeModal();
+			}
+		}
+	}, {
+		key: 'openModal',
+		value: function openModal() {
+			this.modal.classList.add('modal--is-visible');
+			console.log('added!');
+			return false; //prevents default behavior of scrolling up
+		}
+	}, {
+		key: 'closeModal',
+		value: function closeModal() {
+			this.modal.classList.remove('modal--is-visible');
+			console.log('removed!');
+			return false;
+		}
+	}]);
+
+	return Modal;
+}();
+
+exports.default = Modal;
 
 /***/ })
 /******/ ]);

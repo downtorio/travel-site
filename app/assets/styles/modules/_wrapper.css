@@ -10,6 +10,10 @@
 		max-width: 976px;
 	}
 
+	&--narrow {
+		max-width: 470px;
+	}
+
 	&--no-padding-until-medium {
 		padding-left: 0;	/* taking out padding on the testimonials on small screen */
 		padding-right: 0;
