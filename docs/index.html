@@ -8,9 +8,7 @@
 	<meta name="description" content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you.">
 	
 	<!-- SO! this following line used to say 'build:css /assets/styles...' but we changed it to 'build:css assets/styles...', aka we removed the / before 'assets', just because of where we're hosting this site. with the /, the browser will look towards the root of the current domain to find this path and file, but because our github page's site won't live at the root of the domain, we just want our path to be relative to our html file. just be aware. -->
-	<!-- build:css assets/styles/styles.css -->
-	<link rel="stylesheet" type="text/css" href="temp/temp-styles/styles.css">
-	<!-- endbuild -->
+	<link rel="stylesheet" href="assets/styles/styles-6aa5fd3a9e.css"/>
 	<!-- this is for usemin, which looks out for the word 'build' followed by the type of file [build:css] and then the destination [dist(docs)/assets/styles/styles.css] -->
 
 	<!-- NOT-THIS! this won't work cuz i'm using a more updated version of the modules in Vendor than what was taught in this course and i couldn't follow along. so just for reference, this is what usemin would have looked for: build:js /assets/scripts/Vendor.js -->
@@ -213,8 +211,6 @@
 		<div class="modal__close">X</div>
 	</div>
 	
-	<!-- build:js assets/scripts/App.js -->
-	<script src="temp/scripts/App.js"></script>
-	<!-- endbuild -->
+	<script src="assets/scripts/App-7f066650d8.js"></script>
 </body>
 </html>

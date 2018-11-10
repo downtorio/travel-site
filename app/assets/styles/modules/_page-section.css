@@ -13,7 +13,8 @@
 	&--testimonials {
 		background-color: #e0e6ef;
 		@mixin atLarge {
-			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+			background: url('../../assets/images/testimonials-bg.jpg') top center no-repeat;
+			/* that '../../' is to reference the root folder once our site is hosted onto github */
 			background-size: cover;
 		}
 	}
