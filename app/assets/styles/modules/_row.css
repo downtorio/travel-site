@@ -88,7 +88,7 @@
 
 
 	/* Begin Equal Height Rules */
-	&--equal-height-at-medium {
+	.flexbox &--equal-height-at-medium {	/* .flexbox is for modernizr -- applies appropriate styling for older browsers that don't support flexbox */
 		@mixin atMedium {
 			display: flex;
 		}
@@ -99,7 +99,7 @@
 		}
 	}
 
-	&--equal-height-at-large {
+	.flexbox &--equal-height-at-large {
 		@mixin atLarge {
 			display: flex;
 		}
